@@ -7,7 +7,7 @@ Flask
 Flask-Migrate
 Flask-SQLAlchemy
 greenlet
-gunicorn
+gunicorn==19.3.0
 idna
 itsdangerous
 Jinja2

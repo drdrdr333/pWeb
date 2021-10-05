@@ -5,6 +5,8 @@ entrypoint: gunicorn -b :$PORT main:app
 runtime_config:
   python_version: 3
 
+beta_settings:
+  cloud_sql_instances: baseball_pitchers=tcp:5432
 
 manual_scaling:
   instances: 1

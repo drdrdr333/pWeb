@@ -4,9 +4,12 @@ entrypoint: gunicorn -b :$PORT main:app
 
 runtime_config:
   python_version: 3
-
+  
+env_variables:
+  SQLALCHEMY_DATABASE_URI = postgresql+psycopg2://postgres:123456@/baseball_pitchers?host=/cloudsql/solid-space-326918:us-east1:baseball-pitchers
+    
 beta_settings:
-  cloud_sql_instances: baseball_pitchers=tcp:5432
+  cloud_sql_instances: solid-space-326918:us-east1:baseball-pitchers
 
 manual_scaling:
   instances: 1

@@ -37,7 +37,7 @@ class BaseBall(db.Model):
         self.whip = whip
 
     def asdict(self):
-        return {'name': self.name, 'era': self.era, 'ip': self.ip, 'sop9': self.sop9, 'bbp9': self.bbp9, 'whip': self.whi
+        return {'name': self.name, 'era': self.era, 'ip': self.ip, 'sop9': self.sop9, 'bbp9': self.bbp9, 'whip': self.whip}
            
 
 @app.route('/')

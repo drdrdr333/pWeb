@@ -36,21 +36,9 @@ class BaseBall(db.Model):
         self.bbp9 = bbp9
         self.whip = whip
 
-    def __repr__(self):
-        return f"<Player {self.name}>"
-
     def asdict(self):
-        return {'name': self.name, 'era': self.era, 'ip': self.ip, 'sop9': self.sop9, 'bbp9': self.bbp9, 'whip': self.whip}
-
-class PlayerEncode(JSONEncoder):
-    def default(self, o):
-        return o.__dict__
-
-    def jsonDefault(o):
-        return o.decode('utf-8')
+        return {'name': self.name, 'era': self.era, 'ip': self.ip, 'sop9': self.sop9, 'bbp9': self.bbp9, 'whip': self.whi
            
-
-
 
 @app.route('/')
 def home():

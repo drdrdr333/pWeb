@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Player Selection {% endblock %}</title>
+</head>
+<body>
+
+    <!-- Introducing the site -->
+
+    <table border="2" width="100%">
+        <th>
+            <h1>
+                <b>
+                    <u>
+                        WELCOME TO THE PLAYER SELECTION SITE
+                    </u>
+                </b>
+            </h1>
+        </th>                 
+    </table>
+
+    <!-- Welcoming to the site -->
+                
+    <h2>
+        Hello, and welcome to the player selection site.
+        <br>
+    
+        <u>
+            We are so happy you have decided to join us!
+        </u>
+        <br>
+
+    </h2>
+    <hr>
+
+    <!-- Generic description of what the site does -->
+
+    <h4>
+        The purpose of this site is to allow you to pick baseball pitchers according to the type of numbers you would allow them to have.
+        <br>
+        <br>
+        You have the option of selecting 3 from the following 5 categories including the following:
+        <b>
+            <ul>
+                <li>ERA - meaning earned runs average</li>
+                <li>IP - meaning total innings pitched </li>
+                <li>SO/9 - meaning average strikeouts per 9 innings pitched</li>
+                <li>BB/9 - meaning average walks per 9 innings pitched</li>
+                <li>WHIP - walks + hits per inning pitched - an average of how many runners you allow per inning pitched</li>
+            </ul> 
+        </b>
+    </h4>
+    <hr>
+    
+    {% block main %}{% endblock %}
+    <hr>
+
+    <a href="https://bleacherreport.com/articles/2770996-major-league-baseballs-top-10-starting-pitchers-of-all-time?src=rss">
+    
+        <img src="https://media.bleacherreport.com/w_800,h_533,c_fill/br-img-slides/004/300/081/7e1507303479999b52396df32535d77d_crop_exact.jpg" alt="BROKEN">
+        
+    </a>
+
+
+</body>
+</html>

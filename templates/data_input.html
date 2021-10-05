@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head></head>
+    <title>Data Input</title>
+    <link rel="shortcut icon" href="favicon folder/baseball-pitcher_9645-973.jpg" type="image/.jpg" >
+</head>
+
+<body>
+
+   
+    <style>
+
+        .inputContainer {
+                display: inline-block;
+            }
+
+    </style>
+
+
+   
+    
+    <form name="passData" action="." method="POST">
+
+        <br>
+     
+            <div style="display: inline-flex;">
+            
+                <span id="dataSelect1"></span>&nbsp;&nbsp;
+    
+                <input type="text" name="ds1" placeholder="Enter # here" class="inputContainer">
+    
+            </div> 
+        
+        
+        <br>
+
+        <br>
+     
+            <div style="display: inline-flex;">
+            
+                <span id="dataSelect2"></span>&nbsp;&nbsp;
+    
+                <input type="text" name="ds2" placeholder="Enter # here" class="inputContainer">
+    
+            </div> 
+        
+        
+        <br>
+    
+        <br>
+        
+            
+            <div style="display: inline-flex;">
+    
+                <span id="dataSelect3"></span>&nbsp;&nbsp;
+    
+                <input type="text" name="ds3" placeholder="Enter # here" class="inputContainer">
+    
+            </div> 
+        
+        <br>
+        
+        <input type="submit" name="submitbtn" value="submitbtn"> 
+
+    </form>
+
+
+    <script type="text/javascript">
+
+        //pulls out ?dataSelect1=*value* and
+         //searches the parameter of the URL
+        //to pull out only the value we want 
+    
+        const search1 = window.location.search;
+
+        const query1 = new URLSearchParams(search1);
+                
+        const ds1 = query1.get('dataSelect1');
+
+        let dataSelect1 = ds1
+
+        document.getElementById("dataSelect1").innerHTML = dataSelect1;
+
+    </script>
+            
+    <script type="text/javascript">
+            
+        //pulls out ?dataSelect2=*value*
+        //searches the parameter of the URL
+        //to pull out only the value we want 
+    
+        const search2 = window.location.search;
+
+        const query2 = new URLSearchParams(search2);
+                
+        const ds2 = query2.get('dataSelect2');
+
+        let dataSelect2 = ds2
+
+        document.getElementById("dataSelect2").innerHTML = dataSelect2;
+
+    </script>
+
+    <script type="text/javascript">
+            
+        //pulls out ?dataSelect3=*value* and
+        //searches the parameter of the URL
+        //to pull out only the value we want 
+
+        const search3 = window.location.search;
+
+        const query3 = new URLSearchParams(search3);
+    
+        const ds3 = query3.get('dataSelect3');
+
+        let dataSelect3 = ds3
+
+        document.getElementById("dataSelect3").innerHTML = dataSelect3;
+
+    </script>
+
+    
+    
+</body>
+</html>

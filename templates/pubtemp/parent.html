@@ -1,0 +1,74 @@
+{% extends "grandfather.html" %}
+
+{% block title %}Data Input{% endblock %}
+      
+    <main>
+
+        {% block main %}
+
+            <!-- Portion of the site where the user makes their pertinent selections regarding the options available for their pitcher
+        
+            -- Passes form data to next page --
+        
+            -- Provides options for user selections in the form of 3 dropdowns and submission button-->
+
+        
+            <style>
+
+                .inputContainer {
+                    display: inline-block;
+                }
+
+            </style>
+        
+            <form name="dataForm" action="/Player_Selection" method="GET">
+
+                <label for=""> <b> Please type in the numbers that are most important to you in your pitcher: </b> </label>         
+
+                <div style="display: inline-flex;">
+
+                    <span><b>ERA</b></span>&nbsp;&nbsp;
+
+                    <input type="text" name="ERA" placeholder="Enter # for ERA here" class="inputContainer" required>
+
+                </div>
+            
+                <div style="display: inline-flex;">
+
+                    <span><b>IP</b></span>&nbsp;&nbsp;
+
+                    <input type="text" name="IP" placeholder="Enter # for IP here" class="inputContainer" required>
+
+                </div>
+
+                <div style="display: inline-flex;">
+
+                    <span><b>SO/9</b></span>&nbsp;&nbsp;
+
+                    <input type="text" name="SOp9" placeholder="Enter # for SOp9 here" class="inputContainer" required>
+
+                </div>
+
+                <div style="display: inline-flex;">
+
+                    <span><b>BB/9</b></span>&nbsp;&nbsp;
+
+                    <input type="text" name="BBp9" placeholder="Enter # for BBp9 here" class="inputContainer" required>
+
+                </div>
+
+                <div style="display: inline-flex;">
+
+                    <span><b>WHIP</b></span>&nbsp;&nbsp;
+
+                    <input type="text" name="WHIP" placeholder="Enter # for WHIP here" class="inputContainer" required>
+
+                </div>
+
+                <input type="submit" name="Submit" value="Submit">
+
+            </form>
+
+        {% endblock %}
+
+    </main>

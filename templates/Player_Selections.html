@@ -1,0 +1,226 @@
+{% extends "grandfather.html" %}
+
+
+
+{% block title %}Data{% endblock title %}
+
+
+{% block main %}
+    
+    <h2>
+        Players
+    </h2>
+
+    {% for player in players %}
+
+        <p>{{results}}</p>
+    
+    {% endfor %}    
+
+
+{% endblock %}  
+
+
+
+    <!-- Script runs 3 different functions, dependent upon which # of 3 potential dropdown selections are being changed, and takes in variables for each potential selection --
+            
+            -- it will then pass that selection as a variable to the switch control logic based upon selected value-- 
+        
+            -- the switch logic is simply for proper verification of selection purposes, it will display inline statements in the console on the browser side based upon selection if operating
+
+
+
+            <script type="text/javascript">
+
+                function selection1() {
+
+                    var theSelect = dataForm.dataSelect1;
+                    var ERA=document.getElementById('ERA');
+                    var IP=document.getElementById('IP');
+                    var SOp9=document.getElementById('SOp9');
+                    var BBp9=document.getElementById('BBp9');
+                    var WHIP=document.getElementById('WHIP');
+                    var selection1=theSelect[theSelect.selectedIndex].value;
+
+                    switch(selection1){
+                        
+                        case 'ERA': 
+                            ERA.style.display = 'inline';
+                            IP.style.display = 'none';
+                            SOp9.style.display = 'none';
+                            BBp9.style.display = 'none';
+                            WHIP.style.display = 'none';
+                        break;
+
+                        case 'IP':
+                            ERA.style.display = 'none';
+                            IP.style.display = 'inline';
+                            SOp9.style.display = 'none';
+                            BBp9.style.display = 'none';
+                            WHIP.style.display = 'none';
+                        break;
+
+                        case 'SOp9':
+                            ERA.style.display = 'none';
+                            IP.style.display = 'none';
+                            SOp9.style.display = 'inline';
+                            BBp9.style.display = 'none';
+                            WHIP.style.display = 'none';
+                        break;
+
+                        case 'BBp9':
+                            ERA.style.display = 'none';
+                            IP.style.display = 'none';
+                            SOp9.style.display = 'none';
+                            BBp9.style.display = 'inline';
+                            WHIP.style.display = 'none';
+                        break;
+
+                        case 'WHIP':
+                            ERA.style.display = 'none';
+                            IP.style.display = 'none';
+                            SOp9.style.display = 'none';
+                            BBp9.style.display = 'none';
+                            WHIP.style.display = 'inline';
+                        break;
+                        
+                        default:
+                            ERA.style.display = 'none';
+                            IP.style.display = 'none';
+                            SOp9.style.display = 'none';
+                            BBp9.style.display = 'none';
+                            WHIP.style.display = 'none';
+                        break;
+                    }       
+                }
+
+                function selection2() {
+
+                    var theSelect = dataForm.dataSelect2;
+                    var ERA=document.getElementById('ERA');
+                    var IP=document.getElementById('IP');
+                    var SOp9=document.getElementById('SOp9');
+                    var BBp9=document.getElementById('BBp9');
+                    var WHIP=document.getElementById('WHIP');
+                    var selection2=theSelect[theSelect.selectedIndex].value;
+
+                    switch(selection2){
+                        
+                        case 'ERA': 
+                            ERA.style.display = 'inline';
+                            IP.style.display = 'none';
+                            SOp9.style.display = 'none';
+                            BBp9.style.display = 'none';
+                            WHIP.style.display = 'none';
+                        break;
+
+                        case 'IP':
+                            ERA.style.display = 'none';
+                            IP.style.display = 'inline';
+                            SOp9.style.display = 'none';
+                            BBp9.style.display = 'none';
+                            WHIP.style.display = 'none';
+                        break;
+
+                        case 'SOp9':
+                            ERA.style.display = 'none';
+                            IP.style.display = 'none';
+                            SOp9.style.display = 'inline';
+                            BBp9.style.display = 'none';
+                            WHIP.style.display = 'none';
+                        break;
+
+                        case 'BBp9':
+                            ERA.style.display = 'none';
+                            IP.style.display = 'none';
+                            SOp9.style.display = 'none';
+                            BBp9.style.display = 'inline';
+                            WHIP.style.display = 'none';
+                        break;
+
+                        case 'WHIP':
+                            ERA.style.display = 'none';
+                            IP.style.display = 'none';
+                            SOp9.style.display = 'none';
+                            BBp9.style.display = 'none';
+                            WHIP.style.display = 'inline';
+                        break;
+                        
+                        default:
+                            ERA.style.display = 'none';
+                            IP.style.display = 'none';
+                            SOp9.style.display = 'none';
+                            BBp9.style.display = 'none';
+                            WHIP.style.display = 'none';
+                        break;
+                    }       
+                }
+
+                function selection3() {
+
+                    var theSelect = dataForm.dataSelect3;
+                    var ERA=document.getElementById('ERA');
+                    var IP=document.getElementById('IP');
+                    var SOp9=document.getElementById('SOp9');
+                    var BBp9=document.getElementById('BBp9');
+                    var WHIP=document.getElementById('WHIP');
+                    var selection3=theSelect[theSelect.selectedIndex].value;
+
+                    switch(selection3){
+        
+                        case 'ERA': 
+                            ERA.style.display = 'inline';
+                            IP.style.display = 'none';
+                            SOp9.style.display = 'none';
+                            BBp9.style.display = 'none';
+                            WHIP.style.display = 'none';
+                        break;
+
+                        case 'IP':
+                            ERA.style.display = 'none';
+                            IP.style.display = 'inline';
+                            SOp9.style.display = 'none';
+                            BBp9.style.display = 'none';
+                            WHIP.style.display = 'none';
+                        break;
+
+                        case 'SOp9':
+                            ERA.style.display = 'none';
+                            IP.style.display = 'none';
+                            SOp9.style.display = 'inline';
+                            BBp9.style.display = 'none';
+                            WHIP.style.display = 'none';
+                        break;
+
+                        case 'BBp9':
+                            ERA.style.display = 'none';
+                            IP.style.display = 'none';
+                            SOp9.style.display = 'none';
+                            BBp9.style.display = 'inline';
+                            WHIP.style.display = 'none';
+                        break;
+
+                        case 'WHIP':
+                            ERA.style.display = 'none';
+                            IP.style.display = 'none';
+                            SOp9.style.display = 'none';
+                            BBp9.style.display = 'none';
+                            WHIP.style.display = 'inline';
+                        break;
+                        
+                        default:
+                            ERA.style.display = 'none';
+                            IP.style.display = 'none';
+                            SOp9.style.display = 'none';
+                            BBp9.style.display = 'none';
+                            WHIP.style.display = 'none';
+                        break;
+                    }       
+                }
+                    
+            </script> -->
+
+
+
+
+    

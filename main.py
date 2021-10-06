@@ -24,7 +24,7 @@ INSTANCE_NAME ="baseball-pitchers"
 
 
 app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql+psycopg2://postgres:{PASSWORD}@{PUBLIC_IP_ADDRESS}:5431/{DBNAME}?host=/cloudsql/{PROJECT_ID}"
-db - SQLAlchemy(app)
+db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 

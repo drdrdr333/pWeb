@@ -7,7 +7,7 @@ runtime_config:
 
 
 beta_settings:
-  cloud_sql_instances: solid-space-326918:us-east1:baseball-pitchers-ipinternal=tcp:3306,solid-space-326918:us-east1:baseball-pitchers-external
+  cloud_sql_instances: solid-space-326918:us-east1:baseball-pitchers-ipinternal=tcp:3306
 
 
 

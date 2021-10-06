@@ -2,6 +2,7 @@
 from flask import Flask, render_template, request, jsonify
 from string import Template
 import os
+import pg8000
 from flask.json import JSONEncoder
 import psycopg2
 from flask_sqlalchemy import SQLAlchemy, sqlalchemy
@@ -22,7 +23,8 @@ PROJECT_ID ="solid-space-326918"
 INSTANCE_NAME ="baseball-pitchers"
 
 
-app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql+psycopg2://postgres:{PASSWORD}@{PUBLIC_IP_ADDRESS}:5433/{DBNAME}?host=/cloudsql/{PROJECT_ID}"
+
+app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql+pg8000://postgres:{PASSWORD}@{PUBLIC_IP_ADDRESS}:5433/{DBNAME}?host=/cloudsql/{PROJECT_ID}"
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
@@ -58,7 +60,7 @@ def home():
 @app.route('/Player_Selection', methods=["POST", "GET"])
 def data():
     if request.method == 'GET':
-
+        
         fname = ''
         fera = request.args.get("ERA")
         fip = request.args.get("IP")

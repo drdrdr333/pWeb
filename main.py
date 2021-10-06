@@ -15,11 +15,9 @@ from pandas.io.json import json_normalize
 DEBUG = True
 app = Flask(__name__)
 
-
-
 ## CONFIGURATIONS
 
-URI = os.envrion.get('SQLALCHEMY_DABTABASE_URI')
+URI = os.envrion['SQLALCHEMY_DABTABASE_URI']
 
 app.config["SQLALCHEMY_DATABASE_URI"] = URI
 db = SQLAlchemy(app)

@@ -4,12 +4,21 @@ entrypoint: gunicorn -b :$PORT main:app
 
 runtime_config:
   python_version: 3
-  
-env_variables:
-  SQLALCHEMY_DATABASE_URI = postgresql+psycopg2://postgres:123456@35.185.16.7:5433/baseball_pitchers?host=/cloudsql/solid-space-326918:us-east1:baseball-pitchers
     
 beta_settings:
   cloud_sql_instances: solid-space-326918:us-east1:baseball-pitchers
+
+# Remember - storing secrets in plaintext is potentially unsafe. Consider using
+# something like https://cloud.google.com/secret-manager/docs/overview to help keep
+# secrets secret.
+env_variables:
+  CLOUD_SQL_CONNECTION_NAME: solid-space-326918:us-east1:baseball-pitchers
+  DB_USER: postgres
+  DB_PASS: 123456
+  DB_NAME: baseball_pitchers
+
+  # TCP connection setup; remove if using a Unix domain socket instead
+  DB_HOST: 172.17.0.1:5433  
 
 manual_scaling:
   instances: 1

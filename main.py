@@ -17,14 +17,14 @@ app = Flask(__name__)
 
 ## CONFIGURATIONS
 PASSWORD ="123456"
-PUBLIC_IP_ADDRESS ="35.185.16.7"
+PUBLIC_IP_ADDRESS ="172.17.0.1"
 DBNAME ="baseball_pitchers"
 PROJECT_ID ="solid-space-326918"
 INSTANCE_NAME ="baseball-pitchers"
 
 
 
-app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql+pg8000://postgres:{PASSWORD}@{PUBLIC_IP_ADDRESS}:3306/{DBNAME}?host=/cloudsql/{PROJECT_ID}"
+app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql+pg8000://postgres:{PASSWORD}@{PUBLIC_IP_ADDRESS}:3306/{DBNAME}"
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 

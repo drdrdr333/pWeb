@@ -6,7 +6,7 @@ runtime_config:
   python_version: 3
   
 env_variables:
-  SQLALCHEMY_DATABASE_URI = postgresql+psycopg2://postgres:123456@35.185.16.7:5342/baseball_pitchers?host=/cloudsql/solid-space-326918:us-east1:baseball-pitchers
+  SQLALCHEMY_DATABASE_URI = postgresql+psycopg2://postgres:123456@35.185.16.7:5432/baseball_pitchers?host=/cloudsql/solid-space-326918:us-east1:baseball-pitchers
     
 beta_settings:
   cloud_sql_instances: solid-space-326918:us-east1:baseball-pitchers

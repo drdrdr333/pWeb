@@ -23,7 +23,7 @@ PROJECT_ID ="solid-space-326918"
 INSTANCE_NAME ="baseball-pitchers"
 
 
-app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql+psycopg2://postgres:{PASSWORD}@{PUBLIC_IP_ADDRESS}:5431/{DBNAME}?host=/cloudsql/{PROJECT_ID}"
+app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql+psycopg2://postgres:{PASSWORD}@{PUBLIC_IP_ADDRESS}:5432/{DBNAME}?host=/cloudsql/{PROJECT_ID}"
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 

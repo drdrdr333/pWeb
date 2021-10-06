@@ -15,6 +15,7 @@ Mako
 MarkupSafe
 numpy
 pandas
+pg8000
 psycopg2-binary
 PyJWT
 python-dateutil

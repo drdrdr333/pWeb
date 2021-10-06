@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 ## CONFIGURATIONS
 
-URI = os.envrion.get(
+URI = os.envrion.get('SQL_ALCHEMY_DABTABASE_URI'
 
 app.config["SQLALCHEMY_DATABASE_URI"] = F"postgresql://postgres:{PASSWOR}@{PUBLIC_IP_ADDRESS}:5432/baseball_pitchers"
 db = SQLAlchemy(app)

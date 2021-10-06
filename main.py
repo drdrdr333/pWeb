@@ -16,10 +16,14 @@ DEBUG = True
 app = Flask(__name__)
 
 ## CONFIGURATIONS
+PASSWORD ="123456"
+PUBLIC_IP_ADDRESS ="35.185.16.7"
+DBNAME ="baseball_pitchers"
+PROJECT_ID ="solid-space-326918"
+INSTANCE_NAME ="baseball-pitchers"
 
-URI = os.envrion['SQLALCHEMY_DABTABASE_URI']
 
-app.config["SQLALCHEMY_DATABASE_URI"] = URI
+app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql+psycopg2://postgres:{PASSWORD}@1{PUBLIC_IP_ADDRESS}:5431/{DATABASE_NAME}'.format(
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 

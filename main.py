@@ -14,14 +14,12 @@ from pandas.io.json import json_normalize
 DEBUG = True
 app = Flask(__name__)
 
-## GCLOUD SQL
-PASSWORD ="123456"
-PUBLIC_IP_ADDRESS ="35.185.16.7"
-DBNAME ="baseball_pitchers"
-PROJECT_ID ="solid-space-326918"
-INSTANCE_NAME ="baseball_pitchers"
+
 
 ## CONFIGURATIONS
+
+URI = os.envrion.get(
+
 app.config["SQLALCHEMY_DATABASE_URI"] = F"postgresql://postgres:{PASSWOR}@{PUBLIC_IP_ADDRESS}:5432/baseball_pitchers"
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)

@@ -3,7 +3,7 @@
 from flask import Flask, render_template, request, jsonify
 from string import Template
 import os
-import cloud-sql-python-connector
+import cloud_sql_python_connector
 from flask.json import JSONEncoder
 import psycopg2
 from flask_sqlalchemy import SQLAlchemy, sqlalchemy

@@ -30,7 +30,7 @@ db_name = 'baseballpitchers'
 db_host = '104.196.132.156:5432'
 cloud_sql_connection_name = 'test-328103:us-east1:baseball'
 
-SQLALCHEMY_DATABASE_URI = (f"postgresql+pg8000://{db_user}:{db_pass}@{db_host}/{db_name}?unix_socket=/cloudsql/{cloud_sql_connection_name}")   
+SQLALCHEMY_DATABASE_URI = (f"postgresql+pg8000://{db_user}:{db_pass}@{db_host}/{db_name}?host=/cloudsql/{cloud_sql_connection_name}")   
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI

@@ -15,21 +15,16 @@ import logging
 ## INITIALIZE APP
 DEBUG = True
 app = Flask(__name__)
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 
 
 ## CONFIGURATIONS
 db_user = 'test'
 db_pass = '123456'
 db_name = 'baseballpitchers'
-db_socket_dir = '/cloudsql'
+db_host = '104.196.132.156:5432'
 cloud_sql_connection_name = 'test-328103:us-east1:baseball'
 
-SQLALCHEMY_DATABASE_URI = sqlalchemy.create_engine(
-
-    # Equivalent URL:
-    # postgresql+pg8000://<db_user>:<db_pass>@/<db_name>
-    #                         ?unix_sock=<socket_path>/<cloud_sql_instance_name>/.s.PGSQL.5432
-   
-
+SQLALCHEMY_DATABASE_URI = (f"postgresql+pg8000://{db_user}:{db_pass}@{db_host}/{db_name}?unix_socket=/cloudsql/{cloud_sql_connection_name}")   
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI

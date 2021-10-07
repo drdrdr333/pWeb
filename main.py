@@ -31,19 +31,8 @@ db_name = 'baseballpitchers'
 db_host = '104.196.132.156'
 db_port = '5432'
 cloud_sql_connection_name = 'test-328103:us-east1:baseball'
-
-
-engine = sqlalchemy.create_engine(
-     sqlalchemy.engine.url.URL.create(
-         drivername="postgresql+psycopg2",
-         username = db_user,
-         password=db_pass,
-         host=db_host,
-         port=db_port,
-         database=db_name)
-)               
-                
-SQLALCHEMY_DATABASE_URI = engine   
+              
+SQLALCHEMY_DATABASE_URI = f"postgresql+pg8000://{db_user}:{db_pass}@{db_host}:{dp_port}/{db_name}?host={cloud_sql_connection_name}"
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI

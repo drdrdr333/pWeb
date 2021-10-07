@@ -8,7 +8,7 @@ runtime_config:
 service_account:  test-328103@appspot.gserviceaccount.com
  
 beta_settings:
-  cloud_sql_instances: test-328103:us-east1:baseball=tcp:5431
+  cloud_sql_instances: test-328103:us-east1:baseball
  
  
 env_variables:
@@ -17,8 +17,6 @@ env_variables:
   DB_PASS: 123456
   DB_NAME: baseballpitchers
 
-  # TCP connection setup; remove if using a Unix domain socket instead
-  DB_HOST: 172.17.0.1:5431
 
 manual_scaling:
   instances: 1

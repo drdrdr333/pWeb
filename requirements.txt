@@ -23,7 +23,7 @@ python-dateutil
 pytz
 requests
 six
-SQLAlchemy
+SQLAlchemy==0.7.8
 twilio
 urllib3
 Werkzeug

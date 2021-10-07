@@ -24,7 +24,7 @@ conn_name = os.environ["DB_HOST"]
 
 SQLALCHEMY_DATABASE_URI = ( 
      'postgresql+pg8000://db_user:db_pass@localhost/db_name'
-    '?unix_socket=/cloudsql/conn_name
+    '?unix_socket=/cloudsql/conn_name'
 )
 
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI

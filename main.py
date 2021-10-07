@@ -30,8 +30,9 @@ db_pass = 'accesstoken'
 db_name = 'baseballpitchers'
 db_host = '104.196.132.156:5432'
 cloud_sql_connection_name = 'test-328103:us-east1:baseball'
+drivername= 'postgresql+pg8000'
 
-engine = create_engine(f"postgresql+pg8000://{db_user}:{db_pass}@{db_host}/{db_name}?host=/cloudsql/{cloud_sql_connection_name}")
+engine = create_engine(f"{drivername}://{db_user}:{db_pass}@{db_host}/{db_name}?host=/cloudsql/{cloud_sql_connection_name}")
 
 SQLALCHEMY_DATABASE_URI = engine   
 

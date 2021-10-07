@@ -13,6 +13,7 @@ from pandas.io.json import json_normalize
 import logging
 from google.oauth2 import service_account
 from apiclient.discovery import build
+from sqlalchemy import creat_engine
 
 ## INITIALIZE APP
 DEBUG = True
@@ -30,7 +31,9 @@ db_name = 'baseballpitchers'
 db_host = '104.196.132.156:5432'
 cloud_sql_connection_name = 'test-328103:us-east1:baseball'
 
-SQLALCHEMY_DATABASE_URI = (f"postgresql+pg8000://{db_user}:{db_pass}@{db_host}/{db_name}?host=/cloudsql/{cloud_sql_connection_name}")   
+engine = create_engine(f"postgresql+pg8000://{db_user}:{db_pass}@{db_host}/{db_name}?host=/cloudsql/{cloud_sql_connection_name}")
+
+SQLALCHEMY_DATABASE_URI = create_engine(connection_string)   
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI

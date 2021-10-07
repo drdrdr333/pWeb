@@ -1,6 +1,6 @@
 ## IMPORTS
 
-from flask import Flask, render_template, request, jsonify
+import Flask, render_template, request, jsonify
 from string import Template
 import os
 from flask.json import JSONEncoder

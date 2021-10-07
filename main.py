@@ -13,7 +13,7 @@ from pandas.io.json import json_normalize
 import logging
 from google.oauth2 import service_account
 from apiclient.discovery import build
-from sqlalchemy import creat_engine
+from sqlalchemy import create_engine
 
 ## INITIALIZE APP
 DEBUG = True

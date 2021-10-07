@@ -1,6 +1,7 @@
 certifi
 charset-normalizer
 click
+cloud-sql-python-connector==0.1.0
 colorama
 dictalchemy
 Flask
@@ -15,7 +16,6 @@ Mako
 MarkupSafe
 numpy
 pandas
-pg8000
 psycopg2-binary
 PyJWT
 python-dateutil

@@ -20,11 +20,14 @@ app = Flask(__name__)
 db_user = os.environ["DB_USER"]
 db_pass = os.environ["DB_PASS"]
 db_name = os.environ["DB_NAME"]
-db_host = os.environ["DB_HOST"]
-conn_name = 
+conn_name = os.environ["CLOUD_SQL_CONNECTION_NAME"]
 
+SQLALCHEMY_DATABASE_URI = ( 
+     'postgresql+pg8000://db_user:db_pass@localhost/db_name'
+    '?unix_socket=/cloudsql/conn_name
+)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = init_connection_engine()
+app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 

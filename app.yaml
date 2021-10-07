@@ -9,9 +9,6 @@ service_account: servicetest@solid-space-326918.iam.gserviceaccount.com
 
 beta_settings:
   cloud_sql_instances: solid-space-326918:us-east1:baseball-pitchers-ipinternal=tcp:3306
-  
-env_variables:
-  GOOGLE_APPLICATION_CREDENTIALS:'key.json'
     
 
 manual_scaling:

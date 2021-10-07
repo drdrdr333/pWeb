@@ -6,11 +6,7 @@ runtime_config:
   python_version: 3
 
 service_account: servicetest@solid-space-326918.iam.gserviceaccount.com
-
-env_variables:
-  postgres+pg8000://<db_user>:<db_pass>@/<db_name>?unix_sock=/cloudsql/<cloud_sql_instance_name>/.s.PGSQL.5432
-  
-
+ 
 beta_settings:
   cloud_sql_instances: solid-space-326918:us-east1:baseball-pitchers=tcp:5432
   

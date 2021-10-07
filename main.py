@@ -19,7 +19,7 @@ DEBUG = True
 app = Flask(__name__)
 
 scopes=['https://www.googleapis.com/auth/sqlservice.admin']
-SERVICE_ACCOUNT_FFILE = '../env/json/key-file.json'
+SERVICE_ACCOUNT_FFILE = 'key-file.json'
 creds = service_account.Credentials.from_service_account_file( SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 accesstoken = creds.token
 

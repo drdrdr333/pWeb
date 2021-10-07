@@ -35,11 +35,11 @@ driver= 'postgresql+pg8000'
 
 engine = create_engine(
      sqlalchemy.engine.url.URL.create(
-         drivername=driver
-         username = db_user
-         password=db_pass
-         host=db_host
-         port=db_port
+         drivername=driver,
+         username = db_user,
+         password=db_pass,
+         host=db_host,
+         port=db_port,
          database=db_name)
 )               
                 

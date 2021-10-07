@@ -18,13 +18,14 @@ from apiclient.discovery import build
 DEBUG = True
 app = Flask(__name__)
 
-credentials = google.oauth2.service_account.Credentials.from_service_account_file(
-    '../env/json/key-file.json',
-    scopes=['https://www.googleapis.com/auth/cloud-platform'])
+scopes=['https://www.googleapis.com/auth/sqlservice.admin']
+SERVICE_ACCOUNT_FFILE = '../env/json/key-file.json'
+creds = service_account.Credentials.from_service_account_file( SERVICE_ACCOUNT_FILE, scopes=SCOPES)
+accesstoken = creds.token
 
 ## CONFIGURATIONS
-db_user = 'test'
-db_pass = '123456'
+db_user = 'connect@test-328103.iam'
+db_pass = 'accesstoken'
 db_name = 'baseballpitchers'
 db_host = '104.196.132.156:5432'
 cloud_sql_connection_name = 'test-328103:us-east1:baseball'

@@ -33,7 +33,7 @@ db_port = '5432'
 cloud_sql_connection_name = 'test-328103:us-east1:baseball'
 
 
-engine = create_engine(
+engine = sqlalchemy.create_engine(
      sqlalchemy.engine.url.URL.create(
          drivername="postgresql+pg8000",
          username = db_user,

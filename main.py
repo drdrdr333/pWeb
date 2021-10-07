@@ -17,10 +17,10 @@ DEBUG = True
 app = Flask(__name__)
 
 ## CONFIGURATIONS
-db_user = os.environ["DB_USER"]
-db_pass = os.environ["DB_PASS"]
-db_name = os.environ["DB_NAME"]
-conn_name = os.environ["DB_HOST"]
+db_user = 'test'
+db_pass = '123456'
+db_name = 'baseballpitchers'
+conn_name = '/cloudsql/test-328103:us-east1:baseball'
 
 SQLALCHEMY_DATABASE_URI = ( 
      'postgresql+pg8000://db_user:db_pass@localhost/db_name'

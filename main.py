@@ -18,8 +18,9 @@ from apiclient.discovery import build
 DEBUG = True
 app = Flask(__name__)
 
-client_credentials = json.load(open("../env/json/key-file.json"))'
-credentials_token = service_account._JWTAccessCredentials.from_json_keyfile_dict(client_credentials)
+credentials = google.oauth2.service_account.Credentials.from_service_account_file(
+    '../env/json/key-file.json',
+    scopes=['https://www.googleapis.com/auth/cloud-platform'])
 
 ## CONFIGURATIONS
 db_user = 'test'

@@ -20,7 +20,7 @@ app = Flask(__name__)
 db_user = os.environ["DB_USER"]
 db_pass = os.environ["DB_PASS"]
 db_name = os.environ["DB_NAME"]
-conn_name = os.environ["CLOUD_SQL_CONNECTION_NAME"]
+conn_name = os.environ["DB_HOST"]
 
 SQLALCHEMY_DATABASE_URI = ( 
      'postgresql+pg8000://db_user:db_pass@localhost/db_name'

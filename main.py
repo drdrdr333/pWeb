@@ -11,7 +11,7 @@ import json, operator
 import pandas as pd
 from pandas.io.json import json_normalize
 import logging
-from oauth2lib import service_account
+from google.oauth2 import service_account
 from apiclient.discovery import build
 
 ## INITIALIZE APP

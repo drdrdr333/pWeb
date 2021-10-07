@@ -28,19 +28,7 @@ SQLALCHEMY_DATABASE_URI = sqlalchemy.create_engine(
     # Equivalent URL:
     # postgresql+pg8000://<db_user>:<db_pass>@/<db_name>
     #                         ?unix_sock=<socket_path>/<cloud_sql_instance_name>/.s.PGSQL.5432
-    sqlalchemy.engine.url.URL.create(
-        drivername="postgresql+pg8000",
-        username=db_user,  # e.g. "my-database-user"
-        password=db_pass,  # e.g. "my-database-password"
-        database=db_name,  # e.g. "my-database-name"
-        query={
-            "unix_sock": "{}/{}/.s.PGSQL.5432".format(
-                db_socket_dir,  # e.g. "/cloudsql"
-                cloud_sql_connection_name)  # i.e "<PROJECT-NAME>:<INSTANCE-REGION>:<INSTANCE-NAME>"
-        }
-    ),
-    **db_config
-)
+   
 
 
 

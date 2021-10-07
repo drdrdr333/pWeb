@@ -123,6 +123,10 @@ def init_unix_connection_engine(db_config):
     pool.dialect.description_encoding = None
     return pool
 
+app.config['SQLALCHEMY_DATABASE_URI'] = init_connection_engine()
+db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+
 class BaseBall(db.Model):
     __tablename__ = 'baseball_pitchers'
 
@@ -168,16 +172,11 @@ def data():
         ssop9 = BaseBall.sop9 > fsop9
         sbbp9 = BaseBall.bbp9 < fbbp9
         swhip = BaseBall.whip < fwhip
-
         
-    with  db.connect() as conn:
-        # Execute the query and fetch all results
+        
         var = BaseBall.query.filter(sname, sera, sip, ssop9, sbbp9, swhip).all()
         final = [p.asdict() for p in var]
         p1 = sorted(final, key=lambda i: i['name'])
-        
-        
-    
         
     return jsonify(p1)
 

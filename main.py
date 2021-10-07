@@ -11,11 +11,15 @@ import json, operator
 import pandas as pd
 from pandas.io.json import json_normalize
 import logging
+from oauth2client import service_account
+from apiclient.discovery import build
 
 ## INITIALIZE APP
 DEBUG = True
 app = Flask(__name__)
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = 
+
+client_credentials = json.load(open("../env/json/key-file.json"))'
+credentials_token = service_account._JWTAccessCredentials.from_json_keyfile_dict(client_credentials)
 
 ## CONFIGURATIONS
 db_user = 'test'

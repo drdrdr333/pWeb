@@ -17,7 +17,7 @@ app = Flask(__name__)
 
 ## CONFIGURATIONS
 PASSWORD ="123456"
-PUBLIC_IP_ADDRESS ="172.17.0.1"
+PUBLIC_IP_ADDRESS ="35.185.16.7"
 DBNAME ="baseball_pitchers"
 PROJECT_ID ="solid-space-326918"
 INSTANCE_NAME ="baseball-pitchers"

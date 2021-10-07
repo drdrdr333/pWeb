@@ -28,12 +28,21 @@ accesstoken = creds.token
 db_user = 'connect@test-328103.iam'
 db_pass = 'accesstoken'
 db_name = 'baseballpitchers'
-db_host = '104.196.132.156:5432'
+db_host = '104.196.132.156'
+db_port = '5432'
 cloud_sql_connection_name = 'test-328103:us-east1:baseball'
-drivername= 'postgresql+pg8000'
+driver= 'postgresql+pg8000'
 
-engine = create_engine(f"{drivername}://{db_user}:{db_pass}@{db_host}/{db_name}?host=/cloudsql/{cloud_sql_connection_name}")
-
+engine = create_engine(
+     sqlalchemy.engine.url.URL.create(
+         drivername=driver
+         username = db_user
+         password=db_pass
+         host=db_host
+         port=db_port
+         database=db_name)
+)               
+                
 SQLALCHEMY_DATABASE_URI = engine   
 
 

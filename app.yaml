@@ -12,10 +12,10 @@ beta_settings:
  
  
 env_variables:
-  CLOUD_SQL_CONNECTION_NAME: test-328103:us-east1:baseball
-  DB_USER: test
-  DB_PASS: 123456
-  DB_NAME: baseballpitchers
+  DB_USER: 'test'
+  DB_PASS: '123456'
+  DB_NAME: 'baseballpitchers'
+  DB_HOST: '/cloudsql/test-328103:us-east1:baseball'
 
 
 manual_scaling:

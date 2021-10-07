@@ -23,7 +23,7 @@ db_name = 'baseballpitchers'
 conn_name = '/cloudsql/test-328103:us-east1:baseball'
 
 SQLALCHEMY_DATABASE_URI = ( 
-     'postgresql+psycopg2://db_user:db_pass@104.196.132.156/db_name'
+     'postgresql+psycopg2://db_user:db_pass@localhost/db_name'
     '?host=conn_name'
 )
 

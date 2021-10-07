@@ -29,10 +29,10 @@ db_user = 'connect@test-328103.iam'
 db_pass = 'accesstoken'
 db_name = 'baseballpitchers'
 db_host = '104.196.132.156'
-db_port = '5432'
+port = '5432'
 cloud_sql_connection_name = 'test-328103:us-east1:baseball'
               
-SQLALCHEMY_DATABASE_URI = f"postgresql+pg8000://{db_user}:{db_pass}@{db_host}:{dp_port}/{db_name}?host={cloud_sql_connection_name}"
+SQLALCHEMY_DATABASE_URI = f"postgresql+pg8000://{db_user}:{db_pass}@{db_host}:{port}/{db_name}?host={cloud_sql_connection_name}"
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI

@@ -10,6 +10,7 @@ from flask_migrate import Migrate, migrate
 import json, operator
 import pandas as pd
 from pandas.io.json import json_normalize
+import logging
 
 ## INITIALIZE APP
 DEBUG = True

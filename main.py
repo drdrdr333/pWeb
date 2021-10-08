@@ -1,5 +1,5 @@
 ## IMPORTS
-from . import db
+from __init__ import db
 from flask import Flask, render_template, request, jsonify
 from string import Template
 from flask.json import JSONEncoder

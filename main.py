@@ -54,10 +54,11 @@ pool = sqlalchemy.create_engine(
 Session = sessionmaker(bind=pool)
 session = Session()
 
+db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 class BaseBall(db.Model):
-    __tablename__ = 'baseball_pitchers'
+    __tablename__ = 'baseballpitchers'
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String())

@@ -12,8 +12,8 @@ from pandas.io.json import json_normalize
 import logging
 from google.oauth2 import service_account
 from apiclient.discovery import build
-from SQLAlchemy import create_engine
-from SQLAlchemy import sessionmaker
+import create_engine 
+import sessionmaker
 
 ## INITIALIZE APP
 DEBUG = True

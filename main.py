@@ -51,7 +51,7 @@ pool = sqlalchemy.create_engine(
     )
 ) 
 
-Session.configure(bing=engine)
+Session.configure(bind=pool)
 
 migrate = Migrate(app, db)
 

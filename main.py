@@ -44,7 +44,7 @@ pool = sqlalchemy.create_engine(
         password=db_pass,  # e.g. "my-database-password"
         database=db_name,  # e.g. "my-database-name"
         query={
-            "unix_sock": "{}/{}/.s.PGSQL.5432".format(
+            "unix_socket": "{}/{}/.s.PGSQL.5432".format(
                 db_sock,  # e.g. "/cloudsql"
                 cloud_sql_connection_name)  # i.e "<PROJECT-NAME>:<INSTANCE-REGION>:<INSTANCE-NAME>"
         }

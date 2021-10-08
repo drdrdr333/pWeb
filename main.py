@@ -36,7 +36,7 @@ cloud_sql_connection_name = 'test-328103:us-east1:baseball'
 pool = sqlalchemy.create_engine(
 
     # Equivalent URL:
-    # postgresql+pg8000://<db_user>:<db_pass>@/<db_name>
+    # postgresql+psycopg2://<db_user>:<db_pass>@/<db_name>
     #                         ?unix_sock=<socket_path>/<cloud_sql_instance_name>/.s.PGSQL.5432
     sqlalchemy.engine.url.URL.create(
         drivername="postgresql+pg8000",

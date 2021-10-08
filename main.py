@@ -26,8 +26,8 @@ accesstoken = creds.token
 
 
 ## CONFIGURATIONS
-db_user = 
-db_pass = 'accesstoken'
+db_user = 'user'
+db_pass = '123456'
 db_name = 'baseballpitchers'
 db_host = '104.196.132.156'
 port = '5432'

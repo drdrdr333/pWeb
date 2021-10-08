@@ -1,5 +1,4 @@
 ## IMPORTS
-from dotenv import load_dotenv
 from flask import Flask, render_template, request, jsonify
 from string import Template
 from flask.json import JSONEncoder

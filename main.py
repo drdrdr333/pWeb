@@ -27,13 +27,26 @@ db_user = 'user'
 db_pass = '123456'
 db_name = 'baseballpitchers'
 db_host = '104.196.132.156'
-port = '5432'
-cloud_sql_connection_name = 'test-328103:us-east1:baseball'
-              
-SQLALCHEMY_DATABASE_URI = f"postgresql+pg8000://{db_user}:{db_pass}@{db_host}:{port}/{db_name}?host={cloud_sql_connection_name}"
+db_sock = '/cloudsql'
+cloud_sql_connection_name = 'test-328103:us-east1:baseball'            
 
+pool = sqlalchemy.create_engine(
 
-app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
+    # Equivalent URL:
+    # postgresql+pg8000://<db_user>:<db_pass>@/<db_name>
+    #                         ?unix_sock=<socket_path>/<cloud_sql_instance_name>/.s.PGSQL.5432
+    sqlalchemy.engine.url.URL.create(
+        drivername="postgresql+pg8000",
+        username=db_user,  # e.g. "my-database-user"
+        password=db_pass,  # e.g. "my-database-password"
+        database=db_name,  # e.g. "my-database-name"
+        query={
+            "unix_sock": "{}/{}/.s.PGSQL.5432".format(
+                db_sock,  # e.g. "/cloudsql"
+                cloud_sql_connection_name)  # i.e "<PROJECT-NAME>:<INSTANCE-REGION>:<INSTANCE-NAME>"
+        }
+    )
+
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
@@ -83,10 +96,13 @@ def data():
         sbbp9 = BaseBall.bbp9 < fbbp9
         swhip = BaseBall.whip < fwhip
         
-        
-        var = BaseBall.query.filter(sname, sera, sip, ssop9, sbbp9, swhip).all()
-        final = [p.asdict() for p in var]
-        p1 = sorted(final, key=lambda i: i['name'])
+  
+        with db.connect() as conn:
+          conn.execute(
+          var = BaseBall.query.filter(sname, sera, sip, ssop9, sbbp9, swhip).all()
+          )
+          final = [p.asdict() for p in var]
+          p1 = sorted(final, key=lambda i: i['name'])
         
     return jsonify(p1)
 

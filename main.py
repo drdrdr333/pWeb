@@ -1,4 +1,5 @@
 ## IMPORTS
+from . import db
 from flask import Flask, render_template, request, jsonify
 from string import Template
 from flask.json import JSONEncoder
@@ -47,7 +48,6 @@ pool = sqlalchemy.create_engine(
         }
     )
 
-db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 class BaseBall(db.Model):

@@ -24,7 +24,6 @@ SERVICE_ACCOUNT_FILE = '../perm/key-file'
 creds = service_account.Credentials.from_service_account_file( SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 accesstoken = creds.token
 
-load_dotenv('../perm/.env')
 
 ## CONFIGURATIONS
 db_user = 

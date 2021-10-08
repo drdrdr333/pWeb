@@ -52,6 +52,7 @@ pool = sqlalchemy.create_engine(
 ) 
 
 Session = sessionmaker(bind=pool)
+session = Session()
 
 migrate = Migrate(app, db)
 
@@ -102,7 +103,7 @@ def data():
         swhip = BaseBall.whip < fwhip
         
   
-        var = Session.query(Baseball).filter(sname, sera, sip, ssop9, sbbp9, swhip).all()
+        var = session.query(Baseball).filter(sname, sera, sip, ssop9, sbbp9, swhip).all()
         final = [p.asdict() for p in var]
         p1 = sorted(final, key=lambda i: i['name'])
         

@@ -12,6 +12,8 @@ from pandas.io.json import json_normalize
 import logging
 from google.oauth2 import service_account
 from apiclient.discovery import build
+from SQLAlchemy import create_engine
+from SQLAlchemy import sessionmaker
 
 ## INITIALIZE APP
 DEBUG = True
@@ -48,6 +50,8 @@ pool = sqlalchemy.create_engine(
         }
     )
 ) 
+
+Session.configure(bing=engine)
 
 migrate = Migrate(app, db)
 
@@ -98,12 +102,9 @@ def data():
         swhip = BaseBall.whip < fwhip
         
   
-        with db.connect() as conn:
-          conn.execute(
-          var = BaseBall.query.filter(sname, sera, sip, ssop9, sbbp9, swhip).all()
-          )
-          final = [p.asdict() for p in var]
-          p1 = sorted(final, key=lambda i: i['name'])
+        var = session.query(Baseball).filter(sname, sera, sip, ssop9, sbbp9, swhip).all()
+        final = [p.asdict() for p in var]
+        p1 = sorted(final, key=lambda i: i['name'])
         
     return jsonify(p1)
 

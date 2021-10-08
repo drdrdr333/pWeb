@@ -1,8 +1,8 @@
 ## IMPORTS
-
+from dotenv import load_dotenv
 from flask import Flask, render_template, request, jsonify
 from string import Template
-import os
+import os import environ
 from flask.json import JSONEncoder
 import psycopg2
 from flask_sqlalchemy import SQLAlchemy, sqlalchemy
@@ -24,8 +24,10 @@ SERVICE_ACCOUNT_FILE = '../perm/key-file'
 creds = service_account.Credentials.from_service_account_file( SERVICE_ACCOUNT_FILE, scopes=SCOPES)
 accesstoken = creds.token
 
+load_dotenv('../perm/.env')
+
 ## CONFIGURATIONS
-db_user = 'connect@test-328103.iam'
+db_user = 
 db_pass = 'accesstoken'
 db_name = 'baseballpitchers'
 db_host = '104.196.132.156'

@@ -2,7 +2,6 @@
 from dotenv import load_dotenv
 from flask import Flask, render_template, request, jsonify
 from string import Template
-import os import environ
 from flask.json import JSONEncoder
 import psycopg2
 from flask_sqlalchemy import SQLAlchemy, sqlalchemy
@@ -13,7 +12,6 @@ from pandas.io.json import json_normalize
 import logging
 from google.oauth2 import service_account
 from apiclient.discovery import build
-from sqlalchemy import create_engine
 
 ## INITIALIZE APP
 DEBUG = True

@@ -29,7 +29,6 @@ accesstoken = creds.token
 db_user = 'user'
 db_pass = '123456'
 db_name = 'baseballpitchers'
-db_host = '104.196.132.156'
 db_sock = '/cloudsql'
 cloud_sql_connection_name = 'test-328103:us-east1:baseball'            
 

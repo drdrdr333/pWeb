@@ -5,7 +5,7 @@ from string import Template
 from flask.json import JSONEncoder
 import psycopg2
 from flask_sqlalchemy import SQLAlchemy, sqlalchemy
-from flask_migrate import Migrate
+from flask_migrate import Migrate, migrate
 import json, operator
 import pandas as pd
 from pandas.io.json import json_normalize
@@ -47,6 +47,9 @@ pool = sqlalchemy.create_engine(
                 cloud_sql_connection_name)  # i.e "<PROJECT-NAME>:<INSTANCE-REGION>:<INSTANCE-NAME>"
         }
     )
+) 
+
+migrate = Migrate(app, db)
 
 class BaseBall(db.Model):
     __tablename__ = 'baseball_pitchers'

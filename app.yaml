@@ -1,22 +1,4 @@
-runtime: python
-env: flex
-entrypoint: gunicorn -b :$PORT main:app
-
-runtime_config:
-  python_version: 3
-
-service_account:  connect@test-328103.iam.gserviceaccount.com
- 
-beta_settings:
-  cloud_sql_instances: test-328103:us-east1:baseball
- 
- 
-env_variables:
-  DB_USER: 
-  DB_PASS: 
-  DB_NAME: 'baseballpitchers'
-  DB_HOST: ':5432'
-
+runtime: python37
 
 manual_scaling:
   instances: 1

@@ -48,7 +48,7 @@ pool = sqlalchemy.create_engine(
         }
     )
 
-migrate = Migrate(app, db)
+migrate=Migrate(app, db)
 
 class BaseBall(db.Model):
     __tablename__ = 'baseball_pitchers'

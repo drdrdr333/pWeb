@@ -40,12 +40,12 @@ pool = sqlalchemy.create_engine(
     # postgresql+psycopg2://<db_user>:<db_pass>@/<db_name>
     #                         ?host=<socket_path>/<cloud_sql_instance_name>/.s.PGSQL.5432
     sqlalchemy.engine.url.URL.create(
-        drivername="postgresql+pg8000",
+        drivername="postgresql+psycopg2",
         username=db_user,  # e.g. "my-database-user"
         password=db_pass,  # e.g. "my-database-password"
         database=db_name,  # e.g. "my-database-name"
         query={
-            "unix_sock": "{}/{}/.s.PGSQL.542".format(
+            "host": "{}/{}".format(
                 db_sock,  # e.g. "/cloudsql"
                 cloud_sql_connection_name)  # i.e "<PROJECT-NAME>:<INSTANCE-REGION>:<INSTANCE-NAME>"
         }

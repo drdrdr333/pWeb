@@ -14,6 +14,13 @@ from google.oauth2 import service_account
 from apiclient.discovery import build
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+import os
+from dotenv import load_dotenv
+from pathlib import Path
+
+dotenv_path = Path('../.env')
+load_dotenv(dotenv_path=dotenv_path)
+
 
 ## INITIALIZE APP
 DEBUG = True
@@ -21,11 +28,11 @@ app = Flask(__name__)
 
 
 ## CONFIGURATIONS
-db_user = 'user'
-db_pass = '123456'
-db_name = 'baseballpitchers'
-db_sock = '/cloudsql'
-cloud_sql_connection_name = 'test-328103:us-east1:baseball'            
+db_user = os.getenv('DB_USER')
+db_pass = os.getenv('DB_PASS')
+db_name = os.getenv('DB_NAME')
+db_sock = os.getenv('DB_SOCKET_DIR')
+cloud_sql_connection_name = os.getenv('CLOUD_SQL_CONNECTION_NAME')
 
 pool = sqlalchemy.create_engine(
 

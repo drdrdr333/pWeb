@@ -9,12 +9,10 @@ from flask_migrate import Migrate, migrate
 import json, operator
 import pandas as pd
 from pandas.io.json import json_normalize
-import logging
 from apiclient.discovery import build
-from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import os
-from pathlib import Path
+
 
 
 
@@ -22,14 +20,14 @@ from pathlib import Path
 DEBUG = True
 app = Flask(__name__)
 
-db_user = os.environ('DB_USER')
-db_pass = os.environ('DB_PASS')
-db_name = os.environ('DB_NAME')
-db_sock = os.environ('DB_SOCKET_DIR')
-cloud_sql_connection_name = os.environ('CLOUD_SQL_CONNECTION_NAME')
+db_user = os.environ.get('DB_USER')
+db_pass = os.environ.get('DB_PASS')
+db_name = os.environ.get('DB_NAME')
+db_sock = os.environ.get('DB_SOCKET_DIR')
+cloud_sql_connection_name = os.environ.get('CLOUD_SQL_CONNECTION_NAME')
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql+psycopg2://{db_user}:{db_pass}@127.0.0.1:5432/baseballpitchers?host={db_sock}/{cloud_sql_connection_name}"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 

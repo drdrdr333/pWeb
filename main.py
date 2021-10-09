@@ -25,35 +25,14 @@ load_dotenv(dotenv_path=dotenv_path)
 DEBUG = True
 app = Flask(__name__)
 
-
-## CONFIGURATIONS
 db_user = os.getenv('DB_USER')
 db_pass = os.getenv('DB_PASS')
 db_name = os.getenv('DB_NAME')
 db_sock = os.getenv('DB_SOCKET_DIR')
 cloud_sql_connection_name = os.getenv('CLOUD_SQL_CONNECTION_NAME')
 
-pool = sqlalchemy.create_engine(
 
-    # Equivalent URL:
-    # postgresql+pg8000://<db_user>:<db_pass>@/<db_name>
-    #                         ?unix_sock=<socket_path>/<cloud_sql_instance_name>/.s.PGSQL.5432
-    sqlalchemy.engine.url.URL.create(
-        drivername="postgresql+pg8000",
-        username=db_user,  # e.g. "my-database-user"
-        password=db_pass,  # e.g. "my-database-password"
-        database=db_name,  # e.g. "my-database-name"
-        query={
-            "unix_sock": "{}/{}/.s.PGSQL.5432".format(
-                db_sock,  # e.g. "/cloudsql"
-                cloud_sql_connection_name)  # i.e "<PROJECT-NAME>:<INSTANCE-REGION>:<INSTANCE-NAME>"
-        }
-    )
-) 
-
-Session = sessionmaker(bind=pool)
-session = Session()
-
+app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql+psycopg2://{db_user}:{db_pass}@127.0.0.1:5432/baseballpitchers?host={db_sock}/{cloud_sql_connection_name}"
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
@@ -104,7 +83,7 @@ def data():
         swhip = BaseBall.whip < fwhip
         
   
-        var = session.query(BaseBall).filter(sname, sera, sip, ssop9, sbbp9, swhip).all()
+        var = BaseBall.filter(sname, sera, sip, ssop9, sbbp9, swhip).all()
         final = [p.asdict() for p in var]
         p1 = sorted(final, key=lambda i: i['name'])
         

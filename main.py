@@ -14,22 +14,19 @@ from apiclient.discovery import build
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import os
-from dotenv import load_dotenv
 from pathlib import Path
 
-dotenv_path = Path('../.env')
-load_dotenv(dotenv_path=dotenv_path)
 
 
 ## INITIALIZE APP
 DEBUG = True
 app = Flask(__name__)
 
-db_user = os.getenv('DB_USER')
-db_pass = os.getenv('DB_PASS')
-db_name = os.getenv('DB_NAME')
-db_sock = os.getenv('DB_SOCKET_DIR')
-cloud_sql_connection_name = os.getenv('CLOUD_SQL_CONNECTION_NAME')
+db_user = os.environ('DB_USER')
+db_pass = os.environ('DB_PASS')
+db_name = os.environ('DB_NAME')
+db_sock = os.environ('DB_SOCKET_DIR')
+cloud_sql_connection_name = os.environ('CLOUD_SQL_CONNECTION_NAME')
 
 
 app.config['SQLALCHEMY_DATABASE_URI'] = f"postgresql+psycopg2://{db_user}:{db_pass}@127.0.0.1:5432/baseballpitchers?host={db_sock}/{cloud_sql_connection_name}"

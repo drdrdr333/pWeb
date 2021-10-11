@@ -1,4 +1,4 @@
-## IMPORTS
+# IMPORTS
 from __init__ import db
 from flask import Flask, render_template, request, jsonify
 from string import Template
@@ -16,9 +16,11 @@ import os
 
 
 
-## INITIALIZE APP
+# INITIALIZE APP
 DEBUG = True
 app = Flask(__name__)
+
+# GATHER ENVIRONMENT VARIABLES FROM YAML FILE
 
 db_user = os.environ.get('DB_USER')
 db_pass = os.environ.get('DB_PASS')
@@ -26,10 +28,13 @@ db_name = os.environ.get('DB_NAME')
 db_sock = os.environ.get('DB_SOCKET_DIR')
 cloud_sql_connection_name = os.environ.get('CLOUD_SQL_CONNECTION_NAME')
 
+# SETUP SQLACLHEMY DATABASE AS A CONNECTION WITHIN THE APP AS A RESOURCE IDENTIFIER
 
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('SQLALCHEMY_DATABASE_URI')
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+
+# CLASS FOR THE DATABASE, SETING UP A MODEL SO THE QUERY CAN READ FROM THE TABLE
 
 class BaseBall(db.Model):
     __tablename__ = 'baseballpitchers'
@@ -50,14 +55,20 @@ class BaseBall(db.Model):
         self.bbp9 = bbp9
         self.whip = whip
 
+# THIS WAS AN ADD-IN METHOD TO TRANSLATE THE QUERY BACK INTO A DICTIONARY IN ORDER TO TRAVERSE IT FOR PRESENTATION        
+        
     def asdict(self):
         return {'name': self.name, 'era': self.era, 'ip': self.ip, 'sop9': self.sop9, 'bbp9': self.bbp9, 'whip': self.whip}
            
 
+# ROUTING OF THE APPLICATION         
+        
 @app.route('/')
 def home():
     return render_template('pubtemp/parent.html')  
 
+
+# PULLS FORM DATA, QUERIES OUR DATABASE AND PRESENTS THE DATA ORDERED BY THE 'NAME' VALUE IN JSON FORM 
 
 @app.route('/Player_Selection', methods=["POST", "GET"])
 def data():
@@ -85,6 +96,8 @@ def data():
     return jsonify(p1)
 
 
+# ERROR HANDLING IN CASE OF FAILED LOAD
+
 @app.errorhandler(500)
 def server_error(e):
     logging.exception('An error occurred during a request.')
@@ -93,7 +106,7 @@ def server_error(e):
     See logs for full stacktrace.
     """.format(e), 500
     
-
+# APP RUNS AS A LOOBPACK ON GUNICORN AT PORT 8080 
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1', port=8080)

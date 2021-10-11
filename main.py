@@ -55,7 +55,7 @@ class BaseBall(db.Model):
         self.bbp9 = bbp9
         self.whip = whip
 
-# THIS WAS AN ADD-IN METHOD TO TRANSLATE THE QUERY BACK INTO A DICTIONARY IN ORDER TO TRAVERSE IT FOR PRESENTATION        
+# THIS WAS AN ADD-IN METHOD TO TRANSLATE THE QUERY BACK INTO A DICTIONARY IN ORDER TO TRAVERSE IT FOR PRESENTATION WITHIN THE SAME CLASS      
         
     def asdict(self):
         return {'name': self.name, 'era': self.era, 'ip': self.ip, 'sop9': self.sop9, 'bbp9': self.bbp9, 'whip': self.whip}
